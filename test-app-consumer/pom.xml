@@ -5,7 +5,7 @@
   <artifactId>test-app-consumer</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>test-app</name>
+  <name>test-app-consumer</name>
   <dependencies>
   
   <!--  RestEasy -->
