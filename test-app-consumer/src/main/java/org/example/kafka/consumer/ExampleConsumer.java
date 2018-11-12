@@ -7,6 +7,7 @@ import java.util.Properties;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.common.PartitionInfo;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -49,9 +50,10 @@ public class ExampleConsumer {
 						record.key(), record.value(), record.offset());
 			}
 
-			List<TopicPartition> partitions = consumer.partitionsFor("my-topic");
-			for (TopicPartition partition : partitions) {
-				log.info("Now at: {}", consumer.position(partition));
+			List<PartitionInfo> partitions = consumer.partitionsFor("my-topic");
+			for (PartitionInfo partition : partitions) {
+				log.info("TOPIC: {}", partition.topic());
+				log.info("PARTITION: {}", partition.partition());
 			}
 		}
 	}
